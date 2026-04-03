@@ -1,10 +1,10 @@
----
+﻿---
 document type: cmdlet
 external help file: DeviceManager.dll-Help.xml
 HelpUri: ''
 Locale: da-DK
 Module Name: DeviceManager
-ms.date: 04-02-2026
+ms.date: 04-03-2026
 PlatyPS schema version: 2024-05-01
 title: Disable-Device
 ---
@@ -28,6 +28,7 @@ Disable-Device [-Device] <Device> [-WhatIf] [-Confirm] [<CommonParameters>]
 This cmdlet has the following aliases,
   None
 
+
 ## DESCRIPTION
 
 Disables devices the same way Device Manager would.
@@ -35,6 +36,7 @@ Disables devices the same way Device Manager would.
 ## EXAMPLES
 
 ### Example 1
+
 Get-Device -DeviceClass Net -EnumeratorId USB | Disable-Device -Confirm:$false
 Finds and disables all USB network adapters without any prompts.
 
@@ -64,7 +66,8 @@ HelpMessage: ''
 
 ### -Device
 
-The device to disable. Use Get-Device to retrieve objects of this type.
+The device to disable.
+Use Get-Device to retrieve objects of this type.
 
 ```yaml
 Type: MartinGC94.DeviceManager.API.Device

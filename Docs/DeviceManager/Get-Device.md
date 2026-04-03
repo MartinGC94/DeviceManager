@@ -1,10 +1,10 @@
----
+﻿---
 document type: cmdlet
 external help file: DeviceManager.dll-Help.xml
 HelpUri: ''
 Locale: da-DK
 Module Name: DeviceManager
-ms.date: 04-02-2026
+ms.date: 04-03-2026
 PlatyPS schema version: 2024-05-01
 title: Get-Device
 ---
@@ -35,23 +35,27 @@ Get-Device -DeviceInstanceId <string> [-IncludeNonPresent] [<CommonParameters>]
 This cmdlet has the following aliases,
   None
 
+
 ## DESCRIPTION
 
-Retrieves devices on the computer.  
-The command can find devices by their device instance ID, Device Class and/or their enumerator (the connection type between the device and PC).  
+Retrieves devices on the computer.
+The command can find devices by their device instance ID, Device Class and/or their enumerator (the connection type between the device and PC).
 It can also find devices that have previously been connected to the PC.
 
 ## EXAMPLES
 
 ### Example 1
+
 Get-Device -DeviceClass Display
 Find all display adapters on the computer.
 
 ### Example 2
+
 Get-Device -DeviceInstanceId 'PCI\VEN_10DE&DEV_2F04&SUBSYS_F3261569&REV_A1\F650A1A7B92DB04800'
 Find a specific device based on the device instance ID.
 
 ### Example 3
+
 Get-Device -IncludeNonPresent -DeviceClass Net -EnumeratorId USB
 Find all past and present USB network adapters
 
@@ -59,8 +63,8 @@ Find all past and present USB network adapters
 
 ### -DeviceClass
 
-Specifies the kind of devices you want to find.  
-Both device class GUIDs and names can be used as input.  
+Specifies the kind of devices you want to find.
+Both device class GUIDs and names can be used as input.
 If an invalid name is provided, a validation error will be thrown.
 
 ```yaml
@@ -104,9 +108,9 @@ HelpMessage: ''
 
 ### -EnumeratorId
 
-Specifies the enumerator to find devices from.  
-Windows groups devices based on how they are connected to the PC, for example USB devices use the USB enumerator  
-while PCI(e) devices use the PCI enumerator.  
+Specifies the enumerator to find devices from.
+Windows groups devices based on how they are connected to the PC, for example USB devices use the USB enumerator
+while PCI(e) devices use the PCI enumerator.
 Both name and GUID forms are accepted as values.
 
 ```yaml

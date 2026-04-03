@@ -1,10 +1,10 @@
----
+﻿---
 document type: cmdlet
 external help file: DeviceManager.dll-Help.xml
 HelpUri: ''
 Locale: da-DK
 Module Name: DeviceManager
-ms.date: 04-02-2026
+ms.date: 04-03-2026
 PlatyPS schema version: 2024-05-01
 title: Undo-DeviceDriverUpdate
 ---
@@ -28,17 +28,18 @@ Undo-DeviceDriverUpdate [-Device] <Device> [-ShowUI] [-WhatIf] [-Confirm] [<Comm
 This cmdlet has the following aliases,
   Rollback-DeviceDriver
 
+
 ## DESCRIPTION
 
-This command can be used to trigger the driver rollback feature in Windows.  
-When a new driver is installed, the previous driver is kept for backup and can be rolled back to if needed.  
-Windows only keeps 1 driver for backup.  
+This command can be used to trigger the driver rollback feature in Windows.
+When a new driver is installed, the previous driver is kept for backup and can be rolled back to if needed.
+Windows only keeps 1 driver for backup.
 If the driver that is being rolled back is not in use on other devices, and it's not an inbox/system driver then it will also be removed from the driver store.
-
 
 ## EXAMPLES
 
 ### Example 1
+
 Get-Device -Class Display | where Name -Like "*RTX 5070" | Undo-DeviceDriverUpdate
 Rolls back to the previously installed driver for any RTX 5070 GPUs in the system.
 
@@ -89,7 +90,7 @@ HelpMessage: ''
 
 ### -ShowUI
 
-Enables UI functionality for the underlying APIs.  
+Enables UI functionality for the underlying APIs.
 For this command it will show a confirmation box, and if needed, a reboot prompt in the UI.
 
 ```yaml

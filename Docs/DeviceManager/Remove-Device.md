@@ -1,10 +1,10 @@
----
+﻿---
 document type: cmdlet
 external help file: DeviceManager.dll-Help.xml
 HelpUri: ''
 Locale: da-DK
 Module Name: DeviceManager
-ms.date: 04-02-2026
+ms.date: 04-03-2026
 PlatyPS schema version: 2024-05-01
 title: Remove-Device
 ---
@@ -28,6 +28,7 @@ Remove-Device [-Device] <Device> [-ShowUI] [-WhatIf] [-Confirm] [<CommonParamete
 This cmdlet has the following aliases,
   None
 
+
 ## DESCRIPTION
 
 Removes a device from the machine, the same way Device Manager would with the Uninstall Device option.
@@ -37,6 +38,7 @@ This can also be used to remove old devices entries for devices that have previo
 ## EXAMPLES
 
 ### Example 1
+
 Get-Device -IncludeNonPresent -DeviceClass Monitor | where IsPresent -EQ $false | Remove-Device
 Removes the device entries for old monitors that have previously been connected to the computer.
 
@@ -87,7 +89,7 @@ HelpMessage: ''
 
 ### -ShowUI
 
-Enables UI functionality for the underlying APIs.  
+Enables UI functionality for the underlying APIs.
 This will generally be for restart prompts, which will show up in a separate window, rather than being a warning written to the PowerShell host.
 
 ```yaml

@@ -1,10 +1,10 @@
----
+﻿---
 document type: cmdlet
 external help file: DeviceManager.dll-Help.xml
 HelpUri: ''
 Locale: da-DK
 Module Name: DeviceManager
-ms.date: 04-02-2026
+ms.date: 04-03-2026
 PlatyPS schema version: 2024-05-01
 title: Install-DeviceDriver
 ---
@@ -57,41 +57,48 @@ Install-DeviceDriver -LiteralPath <string[]> -HardwareId <string> [-ForceInstall
 This cmdlet has the following aliases,
   None
 
+
 ## DESCRIPTION
 
-This command is used to install drivers on devices in the computer.  
-It has 6 distinct modes in which it can be used:  
-1: Install the specified driver on the specified device.  
-2: Install a "Null" driver on a specified device.  
-3: Stage a folder of .infs to be installed on next boot.  
-4: Install a new driver on all devices matching a specific hardware ID.  
-5: Install a new driver on all compatible devices.  
+This command is used to install drivers on devices in the computer.
+It has 6 distinct modes in which it can be used:
+1: Install the specified driver on the specified device.
+2: Install a "Null" driver on a specified device.
+3: Stage a folder of .infs to be installed on next boot.
+4: Install a new driver on all devices matching a specific hardware ID.
+5: Install a new driver on all compatible devices.
 6: Install the best possible driver from the driver store on a specified device.
 
 ## EXAMPLES
 
 ### Example 1
+
 Get-Device -DeviceClass Display | Get-DeviceDriver -IncludeAvailableDrivers | Where-Object DriverVersion -EQ 1.2.3.4 | Install-DeviceDriver
 Finds a driver in the driverstore with a specific version and installs it on the specified device.
 
 ### Example 2
+
 $Device = Get-Device -DeviceClass Display | select -First 1
 Install-DeviceDriver -Device $Device -InstallNullDriver
 Installs a null driver on the specified device.
 
 ### Example 3
+
 Install-DeviceDriver -StageForNextBoot -Path C:\SP8Drivers
 Adds the the drivers found in the specified folder to the driverstore, but prevents them from being available until the next boot.
 
 ### Example 4
+
 Install-DeviceDriver -HardwareId 'PCI\VEN_10EC&DEV_8126&CC_0200' -Path C:\NicDrivers\Driver.inf
 Installs the specified nic driver on devices with a matching hardware ID.
 
 ### Example 5
+
 Install-DeviceDriver -Path C:\NicDrivers\Driver.inf
 Installs the specified nic driver on all compatible devices.
 
 ### Example 6
+
 $Device = Get-Device -DeviceClass Display | select -First 1
 Install-DeviceDriver -Device $Device
 Installs the best available driver from the driver store on the specified device.
@@ -122,7 +129,7 @@ HelpMessage: ''
 
 ### -Device
 
-The device to install the driver to.  
+The device to install the driver to.
 This parameter is optional and can be left out if the driver is already associated to a device.
 
 ```yaml
@@ -134,7 +141,7 @@ ParameterSets:
 - Name: Default
   Position: Named
   IsRequired: false
-  ValueFromPipeline: false
+  ValueFromPipeline: true
   ValueFromPipelineByPropertyName: false
   ValueFromRemainingArguments: false
 DontShow: false
@@ -144,8 +151,9 @@ HelpMessage: ''
 
 ### -Driver
 
-The driver to install.  
-This parameter is optional. If this parameter is not specified Windows will find the best driver to install from the driverstore.  
+The driver to install.
+This parameter is optional.
+If this parameter is not specified Windows will find the best driver to install from the driverstore.
 Alternatively, if the InstallNullDriver parameter has been specified then a null driver will be installed instead.
 
 ```yaml
@@ -233,7 +241,7 @@ HelpMessage: ''
 
 ### -InstallNullDriver
 
-If this parameter is specified, Windows will try to install a null driver on the device so it runs in raw mode.  
+If this parameter is specified, Windows will try to install a null driver on the device so it runs in raw mode.
 If the device doesn't support raw mode, then the device will be left in an unconfigured state.
 
 ```yaml
@@ -255,7 +263,7 @@ HelpMessage: ''
 
 ### -LiteralPath
 
-Specifies the path(s) to find drivers from.  
+Specifies the path(s) to find drivers from.
 The paths should resolve to .inf driver installation files, unless the StageForNextBoot parameter is set
 in which case the path should resolve to a directory.
 This does not expand wildcards.
@@ -286,7 +294,7 @@ HelpMessage: ''
 
 ### -Path
 
-Specifies the path(s) to find drivers from.  
+Specifies the path(s) to find drivers from.
 The paths should resolve to .inf driver installation files, unless the StageForNextBoot parameter is set
 in which case the path should resolve to a directory.
 This will expand wildcard characters like * ? and [].
@@ -316,9 +324,9 @@ HelpMessage: ''
 
 ### -ShowUI
 
-Enables UI functionality for the underlying APIs.  
-This will generally be for restart prompts, which will show up in a separate window, rather than being a warning written to the PowerShell host.  
-If a device installer has post setup wizards they will be displayed.  
+Enables UI functionality for the underlying APIs.
+This will generally be for restart prompts, which will show up in a separate window, rather than being a warning written to the PowerShell host.
+If a device installer has post setup wizards they will be displayed.
 If this flag is set and the command is trying to find the best driver for a device and it fails, then the "Found New Hardware" wizard will show.
 
 ```yaml
@@ -340,7 +348,7 @@ HelpMessage: ''
 
 ### -StageForNextBoot
 
-Indicates that the drivers should be added to the driverstore and installed on next boot.  
+Indicates that the drivers should be added to the driverstore and installed on next boot.
 If this flag is set then Path/LiteralPath should point to a directory, rather than .inf files.
 
 ```yaml

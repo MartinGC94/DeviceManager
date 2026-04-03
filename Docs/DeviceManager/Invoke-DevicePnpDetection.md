@@ -1,10 +1,10 @@
----
+﻿---
 document type: cmdlet
 external help file: DeviceManager.dll-Help.xml
 HelpUri: ''
 Locale: da-DK
 Module Name: DeviceManager
-ms.date: 04-02-2026
+ms.date: 04-03-2026
 PlatyPS schema version: 2024-05-01
 title: Invoke-DevicePnpDetection
 ---
@@ -28,18 +28,21 @@ Invoke-DevicePnpDetection [-DevicePath <string>] [-Async] [<CommonParameters>]
 This cmdlet has the following aliases,
   None
 
+
 ## DESCRIPTION
 
-Scans for new devices, similar to what Device Manager does when clicking the "Scan for hardware changes" button.  
+Scans for new devices, similar to what Device Manager does when clicking the "Scan for hardware changes" button.
 By default it scans from the root, but it can also be done for devices under a specific tree (for example a USB hub).
 
 ## EXAMPLES
 
 ### Example 1
+
 Invoke-DevicePnpDetection
 Scans for new PNP devices
 
 ### Example 2
+
 Invoke-DevicePnpDetection -DevicePath 'USB\ROOT_HUB30\5&A4D35AA&0&0'
 Scans for new devices under a USB hub.
 
@@ -68,7 +71,7 @@ HelpMessage: ''
 
 ### -DevicePath
 
-Specifies an optional path to a device where the scan should start.  
+Specifies an optional path to a device where the scan should start.
 Can be used to reduce the scan time if you know a parent device where a currently undetected device is located.
 
 ```yaml

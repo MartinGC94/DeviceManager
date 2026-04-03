@@ -1,10 +1,10 @@
----
+﻿---
 document type: cmdlet
 external help file: DeviceManager.dll-Help.xml
 HelpUri: ''
 Locale: da-DK
 Module Name: DeviceManager
-ms.date: 04-02-2026
+ms.date: 04-03-2026
 PlatyPS schema version: 2024-05-01
 title: Enable-Device
 ---
@@ -27,6 +27,7 @@ Enable-Device [-Device] <Device> [-WhatIf] [-Confirm] [<CommonParameters>]
 
 This cmdlet has the following aliases,
   None
+
 
 ## DESCRIPTION
 
@@ -65,7 +66,8 @@ HelpMessage: ''
 
 ### -Device
 
-The device to enable. Use Get-Device to retrieve objects of this type.
+The device to enable.
+Use Get-Device to retrieve objects of this type.
 
 ```yaml
 Type: MartinGC94.DeviceManager.API.Device

@@ -1,10 +1,10 @@
----
+﻿---
 document type: cmdlet
 external help file: DeviceManager.dll-Help.xml
 HelpUri: ''
 Locale: da-DK
 Module Name: DeviceManager
-ms.date: 04-02-2026
+ms.date: 04-03-2026
 PlatyPS schema version: 2024-05-01
 title: Remove-DeviceDriver
 ---
@@ -42,15 +42,17 @@ Remove-DeviceDriver -LiteralPath <string[]> [-KeepInf] [-ShowUI] [-WhatIf] [-Con
 This cmdlet has the following aliases,
   None
 
+
 ## DESCRIPTION
 
-This command removes the specified driver from any device where it is installed and deletes it from the driver store.  
-If another compatible driver package exists in the driver store, then it will be installed on the affected devices, otherwise they will be left with no driver installed.  
+This command removes the specified driver from any device where it is installed and deletes it from the driver store.
+If another compatible driver package exists in the driver store, then it will be installed on the affected devices, otherwise they will be left with no driver installed.
 The KeepInf parameter can be specified to prevent deletion from the driver store.
 
 ## EXAMPLES
 
 ### Example 1
+
 Get-Device -DeviceClass Display | Get-DeviceDriver | Remove-DeviceDriver
 Removes the display driver for all installed GPUs.
 
@@ -80,7 +82,7 @@ HelpMessage: ''
 
 ### -Driver
 
-A driver object that represents the driver to remove.  
+A driver object that represents the driver to remove.
 Note that even though a driver object is device specific, the command will remove the driver package from any device that uses the same driver.
 
 ```yaml
@@ -102,8 +104,8 @@ HelpMessage: ''
 
 ### -KeepInf
 
-Specifies that the driver package should be uninstalled, but not removed from the driver store.  
-Note that some drivers may end up getting removed from the driver store regardless if this flag is set or not.  
+Specifies that the driver package should be uninstalled, but not removed from the driver store.
+Note that some drivers may end up getting removed from the driver store regardless if this flag is set or not.
 Ultimately it is up to the internal API to determine whether or not this flag works or not.
 
 ```yaml
@@ -126,8 +128,8 @@ HelpMessage: ''
 ### -LiteralPath
 
 Specifies the path(s) to the drivers that should be removed.
-The paths should resolve to .inf driver installation files typically located in C:\Windows\INF\oemXX.inf  
-System/inbox drivers cannot be removed by this command, though it will still uninstall them from devices that use them.  
+The paths should resolve to .inf driver installation files typically located in C:\Windows\INF\oemXX.inf
+System/inbox drivers cannot be removed by this command, though it will still uninstall them from devices that use them.
 This does not expand wildcards.
 
 ```yaml
@@ -151,8 +153,8 @@ HelpMessage: ''
 ### -Path
 
 Specifies the path(s) to the drivers that should be removed.
-The paths should resolve to .inf driver installation files typically located in C:\Windows\INF\oemXX.inf  
-System/inbox drivers cannot be removed by this command, though it will still uninstall them from devices that use them.  
+The paths should resolve to .inf driver installation files typically located in C:\Windows\INF\oemXX.inf
+System/inbox drivers cannot be removed by this command, though it will still uninstall them from devices that use them.
 This will expand wildcard characters like * ? and [].
 
 ```yaml
@@ -174,7 +176,7 @@ HelpMessage: ''
 
 ### -ShowUI
 
-Enables UI functionality for the underlying APIs.  
+Enables UI functionality for the underlying APIs.
 This will generally be for restart prompts, which will show up in a separate window, rather than being a warning written to the PowerShell host.
 
 ```yaml
