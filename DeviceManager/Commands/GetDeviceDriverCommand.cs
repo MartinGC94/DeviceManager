@@ -14,7 +14,7 @@ namespace MartinGC94.DeviceManager.Commands
     [OutputType(typeof(DeviceDriver))]
     public sealed class GetDeviceDriverCommand : PSCmdlet
     {
-        [Parameter(ParameterSetName = "Default", ValueFromPipeline = true)]
+        [Parameter(ParameterSetName = "Default", ValueFromPipeline = true, Position = 0)]
         [Parameter(ParameterSetName = "FromPath", ValueFromPipeline = true)]
         [Parameter(ParameterSetName = "FromLiteralPath", ValueFromPipeline = true)]
         [ValidateNotNull]
@@ -28,7 +28,7 @@ namespace MartinGC94.DeviceManager.Commands
         [Alias("Class")]
         public string DeviceClass { get; set; }
 
-        [Parameter(ParameterSetName = "FromPath", Mandatory = true)]
+        [Parameter(ParameterSetName = "FromPath", Mandatory = true, Position = 0)]
         public string[] Path
         {
             get => pathsToResolve;

@@ -7,7 +7,7 @@ namespace MartinGC94.DeviceManager.Commands
     [Cmdlet(VerbsCommon.Show, "DeviceUpdateWizard")]
     public sealed class ShowDeviceUpdateWizardCommand : Cmdlet
     {
-        [Parameter(ValueFromPipeline = true, Mandatory = true)]
+        [Parameter(ValueFromPipeline = true, Mandatory = true, Position = 0)]
         public Device Device { get; set; }
 
         protected override void ProcessRecord()

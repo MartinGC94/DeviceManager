@@ -10,7 +10,7 @@ namespace MartinGC94.DeviceManager.Commands
     [Cmdlet(VerbsLifecycle.Install, "DeviceDriver", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High, DefaultParameterSetName = "Default")]
     public sealed class InstallDeviceDriverCommand : PSCmdlet
     {
-        [Parameter(ValueFromPipeline = true, ParameterSetName = "Default")]
+        [Parameter(ValueFromPipeline = true, ParameterSetName = "Default", Position = 0)]
         [ValidateNotNull()]
         public DeviceDriver Driver { get; set; }
 
@@ -18,8 +18,8 @@ namespace MartinGC94.DeviceManager.Commands
         [ValidateNotNull]
         public Device Device { get; set; }
 
-        [Parameter(Mandatory = true, ParameterSetName = "FromPath")]
-        [Parameter(Mandatory = true, ParameterSetName = "WithHardwareIdAndPath")]
+        [Parameter(Mandatory = true, ParameterSetName = "FromPath", Position = 0)]
+        [Parameter(Mandatory = true, ParameterSetName = "WithHardwareIdAndPath", Position = 0)]
         public string[] Path
         {
             get => pathsToResolve;

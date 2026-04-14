@@ -8,10 +8,10 @@ namespace MartinGC94.DeviceManager.Commands
     [Cmdlet(VerbsCommon.Remove, "DeviceDriver", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     public sealed class RemoveDeviceDriverCommand : PSCmdlet
     {
-        [Parameter(Mandatory = true, ParameterSetName = "Driver", ValueFromPipeline = true)]
+        [Parameter(Mandatory = true, ParameterSetName = "Driver", ValueFromPipeline = true, Position = 0)]
         public DeviceDriver Driver { get; set; }
 
-        [Parameter(Mandatory = true, ParameterSetName = "Path")]
+        [Parameter(Mandatory = true, ParameterSetName = "Path", Position = 0)]
         public string[] Path
         {
             get => pathsToResolve;
