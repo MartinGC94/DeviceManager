@@ -1,2 +1,16 @@
+2.0.0:
+    Added positions to the following commands and parameters:
+        Get-DeviceDriver (Device and Path)
+        Install-DeviceDriver (Driver and Path)
+        Remove-DeviceDriver (Driver and Path)
+        Show-DeviceUpdateWizard (Device)
+    Renamed most device properties to remove the following prefixes:
+        System.Devices.
+        System.
+        System.Drivers. (Replaced with Driver) for example System.Drivers.InfSection became DriverInfSection
+    Added a PSPropertyAdapter for Device objects which has the following effects:
+        Makes it possible to access Device properties like any other property like: ($Dev.DriverInfSection).
+        Removes the magic .Count PS property for individual devices in Windows PowerShell 5.1 (due to a bug).
+    Added new GetDevicePropertyById and GetDevicePropertyByName methods to Device objects.
 1.0.0:
     Initial release.

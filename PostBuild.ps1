@@ -9,6 +9,7 @@ param
 $ModuleName = [System.IO.Path]::GetFileNameWithoutExtension($OutputFile)
 $OutputDir = Split-Path -LiteralPath $OutputFile
 $FormatFile = Copy-Item -LiteralPath "$PSScriptRoot\${ModuleName}Format.ps1xml" -Destination $OutputDir -Force -PassThru
+$TypeFile = Copy-Item -LiteralPath "$PSScriptRoot\${ModuleName}Type.ps1xml" -Destination $OutputDir -Force -PassThru
 
 $ModuleInfo = Import-Module -Name $OutputFile -PassThru -ErrorAction Stop
 $CmdletsToExport = $ModuleInfo.ExportedCmdlets.Keys.ForEach({"'$_'"}) -join ','
@@ -37,6 +38,7 @@ $Version = $ReleaseNotes.Split(':')[0]
 
 ((Get-Content -LiteralPath "$PSScriptRoot\ModuleManifest.psd1" -Raw) -replace '{(?=[^\d])','{{' -replace '(?<!\d)}','}}') -f @(
     "'$Version'"
+    "'$($TypeFile.FullName.Replace("$OutputDir\", ''))'"
     "'$($FormatFile.FullName.Replace("$OutputDir\", ''))'"
     $CmdletsToExport
     $AliasesToExport

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Types>
+  <Type>
+    <Name>MartinGC94.DeviceManager.API.Device</Name>
+    <TypeAdapter>
+      <TypeName>MartinGC94.DeviceManager.API.DeviceAdapter</TypeName>
+    </TypeAdapter>
+  </Type>
+</Types>
