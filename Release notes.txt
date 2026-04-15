@@ -1,3 +1,5 @@
+2.0.1:
+    Fixed issue that prevented the module from being imported in Windows PowerShell 5.1.
 2.0.0:
     Added positions to the following commands and parameters:
         Get-DeviceDriver (Device and Path)
